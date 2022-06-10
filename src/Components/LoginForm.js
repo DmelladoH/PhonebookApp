@@ -1,6 +1,41 @@
-export const LoginForm = ({userName, password, handleUserNameChange, handlePasswordChange, handleLoginSubmit}) => {
-    return(
+import { useState } from 'react'
 
+export const LoginForm = ({logUser, setErrorMessage}) => {
+    
+    const [userName, setUserName] = useState('')
+    const [password, setPassword] = useState('')
+    
+    const handlePasswordChange = (event) =>{
+        setPassword(event.target.value)
+    }
+    
+    const handleUserNameChange = (event) =>{
+        setUserName(event.target.value)
+    }
+
+    const handleLoginSubmit = async (event) => {
+        event.preventDefault()
+        try{
+          const useLogin = {
+            userName: userName,
+            password: password
+          }
+
+          logUser(useLogin)
+
+          setUserName('')
+          setPassword('')
+        }catch(err){
+          setErrorMessage('Wrong credentials')
+          setTimeout(() => {
+            setErrorMessage('')
+          },5000)
+    
+          console.log(err)
+        }
+      }
+
+    return(
         <form onSubmit={handleLoginSubmit}>
             <div>
                 <input

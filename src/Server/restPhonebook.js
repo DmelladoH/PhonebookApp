@@ -12,15 +12,23 @@ export const getPhonebook = async() => {
     return axios.get(baseUrl)
 }
 
-export const create = async(newObject) => {
+export const deleteContact = async(id) =>{
+    const config = {
+        headers:{
+            Authorization: token
+        }
+    }
+    const request = axios.delete(baseUrl + '/' + id, config)
+    return request.then(response => response.data)
+}
+
+export const createContact = async(newObject) => {
 
     const config = {
         headers:{
             Authorization: token
         }
     }
-
-    console.log(config)
 
     const request = axios.post(baseUrl, newObject, config)
     return request.then(response => response.data)

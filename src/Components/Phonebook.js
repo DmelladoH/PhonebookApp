@@ -1,7 +1,7 @@
 
 import {PersonDisplay} from './PersonDisplay'
 
-export const Phonebook = ({phonebook, filter}) => {
+export const Phonebook = ({phonebook, filter, deleteContact}) => {
 
     return(
         <div>
@@ -14,7 +14,8 @@ export const Phonebook = ({phonebook, filter}) => {
                     return <PersonDisplay 
                         id={person.id}
                         name={person.name}
-                        number={person.number}/>
+                        number={person.number}
+                        deleteContact = {deleteContact}/>
                 })}
             </ul>
         </div>

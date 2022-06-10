@@ -1,4 +1,13 @@
 
-export const PersonDisplay = ({id, name, number}) => {
-    return <li key={id}> {name} : {number}</li>
+export const PersonDisplay = ({id, name, number, deleteContact}) => {
+
+    const handleDeleteOnClick = () => {
+        deleteContact(id)
+    }
+
+    return (
+        <li key={id} >{name} : {number} <button onClick={handleDeleteOnClick}>delete</button></li>
+    )
 }
+
+
