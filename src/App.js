@@ -5,7 +5,7 @@ import {getPhonebook, createContact, deleteContact, setToken} from './Server/res
 import {login} from './Server/login'
 import {Phonebook} from './Components/Phonebook'
 import {SearchFilter} from './Components/SearchFilter'
-import {PersonForm} from './Components/PersonForm'
+import {ContactForm} from './Components/ContactForm'
 import {LoginForm} from './Components/LoginForm'
 import {Notification} from './Components/Notification'
 
@@ -94,8 +94,7 @@ function App() {
    
          user ? 
             <div>
-              <h2>Add a new contact</h2>
-              <PersonForm 
+              <ContactForm 
                   addContact={addContact}/>
             
              <br />
@@ -105,7 +104,7 @@ function App() {
                 handleFilterChange={handleFilterChange}
                 filterValue={filterPerson}/>
                   
-              <h2>Contacts</h2>
+              
               <Phonebook
                 phonebook={phonebook}
                 filter= {filterPerson}
@@ -115,11 +114,10 @@ function App() {
               </div>
             </div>
           : 
-            <div>
-              <LoginForm 
+            <LoginForm 
                   logUser = {logUser}
                   setErrorMessage = {setErrorMessage}/>      
-            </div>
+            
         }
      
 

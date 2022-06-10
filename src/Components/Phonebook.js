@@ -5,6 +5,7 @@ export const Phonebook = ({phonebook, filter, deleteContact}) => {
 
     return(
         <div>
+            <h2>Contacts</h2>
             <ul>
             {
                 phonebook.filter((person) => {
